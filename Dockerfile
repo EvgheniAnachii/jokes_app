@@ -8,7 +8,8 @@ WORKDIR /app
 COPY . ./
 
 # Restore .NET dependencies
-RUN dotnet restore
+RUN dotnet restore jokes_app.csproj && dotnet build -c Release -o out 
+
 
 # Build the application
 RUN dotnet build -c Release -o out
@@ -26,4 +27,4 @@ COPY --from=build-env /app/out .
 EXPOSE 80
 
 # Define entry point for the application
-ENTRYPOINT ["dotnet", "mywebapp.dll"]
+ENTRYPOINT ["dotnet", "jokes_app.dll"]

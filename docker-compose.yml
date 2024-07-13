@@ -7,4 +7,4 @@ services:
       - "8080:80"
     volumes:
       - .:/app
-    command: dotnet mywebapp.dll
+    command: dotnet jokes_app.dll
